@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Shimmer from "./shimmer";
 
 const Body=()=>{
@@ -7,12 +8,20 @@ const Body=()=>{
     const [allRestroList, setAllRestroList]=useState([]);
     //modifying and filtering this temp var
     const [fliterSrchList,setFilterSrchList]=useState([]);
+    //With useEffect, API fetch will happens only once (while initial rendering)
     useEffect(()=>{
       getData()  
     },[])
+    
     async function getData()
     {
-        var rdata= await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=15.5057232&lng=80.049922")
+        try{
+            var rdata= await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=15.5057232&lng=80.049922")
+        }
+        catch(error){
+            console.error("Unable to fetch data")
+            return
+        }
         rdata=await rdata.json()
         setAllRestroList(rdata?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
         setFilterSrchList(rdata?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
@@ -39,7 +48,7 @@ const Body=()=>{
         <div className="body">
         {
             fliterSrchList.map((r)=>{
-                return <RestroCard {...r.info}/>
+                return <Link to={"./restaurent/"+r.info.id}><RestroCard {...r.info}/></Link>
             })
         }
         </div>
@@ -54,9 +63,9 @@ function filterList(searchTxt,allRestroList){
     let data=allRestroList.filter((e)=>{return e.info.name.includes(searchTxt)})
     return data;
 }
-export const RestroCard=({name,cuisines,cloudinaryImageId}) =>{
+export const RestroCard=({name,cuisines,cloudinaryImageId,id}) =>{
     return (
-        <div className="card">
+        <div className="card" key={id}>
         <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+cloudinaryImageId}></img>
         <h2>{name}</h2>
         <h4 className="cusin">{cuisines.join(", ")}</h4>
