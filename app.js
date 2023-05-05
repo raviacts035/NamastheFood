@@ -4,15 +4,17 @@ import ReactDOM from "react-dom/client";
 import * as obj from "./components/Title";
 import Fotter from "./components/Fotter";
 import Body from "./components/Body";
-import RestaurentItems from "./components/Restaurent";
+import RestaurentItems from "./components/RestaurentItems";
 import {About, Contact} from "./components/nav-items";
 import {Error} from "./components/ErrorPage";
 import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";
+import OfflinePage from "./components/OfflinePage";
 
 
 const Applayout=()=>{
     return (<>
         <obj.Nav/>
+        <OfflinePage />
         <Outlet />
         <Fotter/>
     </>
