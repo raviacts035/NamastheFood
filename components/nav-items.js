@@ -1,6 +1,6 @@
 import React from "react"
 
-export const About=()=>{
+const About=()=>{
     return (<>
         <h1 className="abt-title">About US</h1>
         <p>We are a group of service providers between food restaruents and Customers/ Consumers.<br/>
@@ -44,3 +44,5 @@ class Profile extends React.Component{
         console.log("ComponentDid")
     }
 }
+
+export default About

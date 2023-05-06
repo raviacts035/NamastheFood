@@ -10,6 +10,7 @@ export const Nav =()=>{
                 <a href="./">Home</a>
                 <a href="./About">About</a>
                 <a href="./Contact">Contact</a>
+                <a href="./InstaMart">Insta Mart</a>
                 <h4>Cart</h4>
                 {isLogedIn?<button onClick={()=>{setIsLogedIn(false)}}>LogOut</button>:<button onClick={()=>{setIsLogedIn(true)}}>LogIn</button>}
             </ul>
