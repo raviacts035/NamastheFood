@@ -28,7 +28,7 @@ const Body=()=>{
 
     }
     return (fliterSrchList.length==0) ? <Shimmer/> : (
-    <>
+    <React.Fragment className="flex">
         <input
         type="text" 
         className="serach-box"
@@ -52,7 +52,7 @@ const Body=()=>{
             })
         }
         </div>
-    </>
+    </React.Fragment>
     );
 }
 //on button click, Fn call => restroList filter with KeyWORD => filter result => setSearchList=
