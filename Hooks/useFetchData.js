@@ -4,7 +4,6 @@ const useFetchData=(xurl)=>{
     const [restroInfo,setRestroInfo]=useState(null);
     useEffect(()=>{
         getData(setRestroInfo)
-
     },[]);
 
     async function getData(setRestroInfo){

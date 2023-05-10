@@ -1,8 +1,7 @@
-import { useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Shimmer from "./shimmer"
 import useFetchData from "../Hooks/useFetchData"
-import Restro_Info_URL from "../utils/helper"
+import {Restro_Info_URL, Restros} from "../utils/helper"
 
 
 const RestaurentItems=()=>{

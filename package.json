@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "This is React practice Project",
   "scripts": {
-    "test": "npm start"
+    "tail":"npx tailwindcss -i ./components/index.css -o ./dist/output.css --watch",
+    "start": "npx parcel ./index.html"
   },
   "keywords": [
     "#react"
