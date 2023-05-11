@@ -10,8 +10,8 @@ const Body=()=>{
     const allRestroList=rdata?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
 
     return (!allRestroList) ? <Shimmer/> : (
-    <section className="flex flex-col w-full justify-center">
-        <div className="flex justify-center">
+    <section className="flex flex-col items-center w-full">
+        <div className="w-min sm:w-[640px] lg:w-[860px] 2xl:w-[1080px]">
             <input
             type="text" 
             className="serach-box"
@@ -28,7 +28,7 @@ const Body=()=>{
             }}
             >serach</button>
         </div>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 w-min sm:w-[640px] lg:w-[860px] 2xl:w-[1080px]">
         {
             allRestroList.map((r)=>{
                 return <Link to={"./restaurent/"+r.info.id}><RestroCard {...r.info}/></Link>
@@ -38,19 +38,10 @@ const Body=()=>{
     </section>
     );
 }
-//on button click, Fn call => restroList filter with KeyWORD => filter result => setSearchList=
-
-//Search Functionality
-// function filterList(searchTxt,allRestroList){
-//     let data=allRestroList.filter((e)=>{return e.info.name.includes(searchTxt)})
-//     return data;
-// }
-
-
 
 export const RestroCard=({name,cuisines,cloudinaryImageId,id,costForTwo,avgRating,sla}) =>{
     return (
-        <div className="w-[14vw] h-[33vh] p-2 hover:border-black border-2 flex flex-col" key={id}>
+        <div className="w-[200px] h-[33vh] p-2 hover:border-black border-2 flex flex-col" key={id}>
         <div className="basis-2/3">
             <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+cloudinaryImageId}/>
         </div>
