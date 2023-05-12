@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import Shimmer from "./shimmer"
 import useFetchData from "../Hooks/useFetchData"
 import {Restro_Items_URL} from "../utils/helper"
+import ItemGroup from "./ItemGroup"
 
 
 const RestaurentItems=()=>{
@@ -11,8 +12,7 @@ const RestaurentItems=()=>{
     //Restro main banner Info, Part-1
     const restroInfo=Info?.data?.cards[0]?.card?.card
     //Restro Grouped Card Collection, Part-2
-    const restroItems=Info?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-
+    const ItemsGroups=Info?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
     return (!restroInfo)?<Shimmer/>:(
         <>
         {/* Restro Banner (Part-1) */}
@@ -31,26 +31,17 @@ const RestaurentItems=()=>{
         </div>
         <hr></hr>
         <p>{restroInfo?.info.sla?.slaString} {restroInfo?.info?.costForTwoMessage}</p>
-        <hr></hr>
-        <ItemGroup par={restroItems}/>
+        <section>
+            {ItemsGroups.map(e => {
+                if (e?.card?.card.title){
+                    return (<ItemGroup par={e.card.card}/>)
+                }
+            })}
+        </section>
         </>
     )
 }
 
-// Item group ==> Item Card
-const ItemGroup=(par)=>{
-    console.log(par.par)
-    return (
-        <section>
-            <h3><b>{par.par.title}</b></h3>
-            <hr></hr>
-            <ul>{par.par.itemCards.map((r)=>{
-            return <li key={r.card?.info?.id}>{...r.card?.info.name}</li>
-        })}
-        </ul>
-        </section>
-    )
-}
 
 
 export default RestaurentItems
