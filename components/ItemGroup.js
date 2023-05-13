@@ -5,9 +5,11 @@ const ItemGroup=(par)=>{
     return (
         <section key={par.par.title}>
             <h3><b>{par.par.title}</b></h3>
-            <hr></hr>
             {par.par.itemCards.map((r)=>{
-            return <ItemCard {...r?.card?.info}/>
+            return <>
+            <ItemCard {...r?.card?.info}/>
+            <hr className="my-2 border-1 w-full"/>
+            </>
         })}
         </section>
     )
