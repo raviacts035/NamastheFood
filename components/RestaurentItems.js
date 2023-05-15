@@ -4,11 +4,12 @@ import useFetchData from "../Hooks/useFetchData";
 import { Restro_Items_URL } from "../utils/helper";
 import ItemGroup from "./ItemGroup";
 
+
 const RestaurentItems = () => {
   const { id } = useParams();
 
   const Info = useFetchData(Restro_Items_URL + id);
-  console.log(Info);
+  
   //Restro main banner Info, Part-1
   const restroInfo = Info?.data?.cards[0]?.card?.card;
   //Restro Grouped Card Collection, Part-2

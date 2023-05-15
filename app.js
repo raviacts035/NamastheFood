@@ -10,6 +10,8 @@ import {Error} from "./components/ErrorPage";
 import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";
 import OfflinePage from "./components/OfflinePage";
 import Shimmer from "./components/shimmer";
+import {Provider} from "react-redux";
+import store from "./utils/store";
 
 
 //Lazy loading Insta Mart
@@ -18,12 +20,15 @@ const About=lazy(()=>import('./components/nav-items'))
 
 
 const Applayout=()=>{
-    return (<>
+    return (
+    <Provider store={store}>
+        <>
         <obj.Nav/>
         <OfflinePage />
         <Outlet />
         <Fotter/>
-    </>
+        </>
+    </Provider>
     )
 };
 

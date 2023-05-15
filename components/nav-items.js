@@ -22,7 +22,7 @@ class Profile extends React.Component{
     constructor(props){
         super();
         this.det={
-            age:1,
+            num:1,
         }
         console.log("Constructor")
     }
@@ -30,10 +30,10 @@ class Profile extends React.Component{
         console.log("render")
         return(
             <>
-                <h4>This is a Class Componen old : {this.det.age}</h4>
+                <h4>This is a Class Componen old : {this.det.num}</h4>
                 <button onClick={()=>{
                     this.setDet({
-                        age:12,
+                        num:12,
                         name:"ravi"
                     })
                 }}>ResetAge</button>
