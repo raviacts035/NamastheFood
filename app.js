@@ -12,6 +12,7 @@ import OfflinePage from "./components/OfflinePage";
 import Shimmer from "./components/shimmer";
 import {Provider} from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart"
 
 
 //Lazy loading Insta Mart
@@ -24,7 +25,7 @@ const Applayout=()=>{
     <Provider store={store}>
         <>
         <obj.Nav/>
-        <OfflinePage />
+        {/* <OfflinePage /> */}
         <Outlet />
         <Fotter/>
         </>
@@ -61,6 +62,10 @@ const appRoutes=createBrowserRouter([
                 element:(<Suspense fallback={<Shimmer/>}>
                     <InstaMart/>
                     </Suspense>)
+            },
+            {
+                path:"/Cart",
+                element:<Cart/>
             },
         ]
     }

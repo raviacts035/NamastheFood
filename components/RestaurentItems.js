@@ -54,7 +54,7 @@ const RestaurentItems = () => {
               if (e?.card?.card.title && e?.card?.card.itemCards) {
                 return (<>
                     <hr className="my-2 border-2 border-black"/>
-                    <ItemGroup par={e.card.card} />
+                    <ItemGroup key={e.card.card.title} {...e.card.card} />
                 </>);
             }
           })}

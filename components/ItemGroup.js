@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ItemCard from "./ItemCard"
 
-const ItemGroup=(par)=>{
+const ItemGroup=({itemCards,title})=>{
     // console.log(par.par)
     const [isVisible,setIsVisible]=useState(true)
 
@@ -9,9 +9,9 @@ const ItemGroup=(par)=>{
         setIsVisible(!isVisible)
     }
     return (
-        <section className="py-2" key={par.par.title}>
+        <section className="py-2" key={title}>
             <div className="flex justify-between">
-                <span className="font-bold">{par.par.title} </span>
+                <span className="font-bold">{title} </span>
                 <button onClick={()=>{
                     setVisibility()
                 }}>
@@ -19,10 +19,10 @@ const ItemGroup=(par)=>{
                 </button>
             </div>
             {isVisible?<div id="dropdown">
-                {par.par.itemCards.map((r)=>{
+                {itemCards.map((r)=>{
                 return <>
                     <hr className="my-2 border-1 w-full"/>
-                    <ItemCard {...r?.card?.info}/>
+                    <ItemCard key={r?.card?.info.id} {...r?.card}/>
                 </>
                 })}
             </div>:<></>}
