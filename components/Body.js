@@ -8,6 +8,7 @@ import RestroCard from "./RestroCard";
 const Body=()=>{
     const [searchTxt,setSearchTxt]=useState("");
     const rdata=useFetchData(RestroList_URL)
+    console.log(rdata)
     const allRestroList=rdata?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
 
     return (!allRestroList) ? <Shimmer/> : (

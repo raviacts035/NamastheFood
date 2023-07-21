@@ -26,7 +26,7 @@ const Applayout=()=>{
         <>
         <obj.Nav/>
         {/* <OfflinePage /> */}
-        <Outlet />
+            <Outlet />
         <Fotter/>
         </>
     </Provider>

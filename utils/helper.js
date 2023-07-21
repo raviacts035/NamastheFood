@@ -2,7 +2,7 @@
 // Easy Accessiblie
 export const Restro_Items_URL="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=15.5057232&lng=80.049922&restaurantId="
 
-export const RestroList_URL="https://www.swiggy.com/mapi/homepage/getCards?lat=15.5057232&lng=80.049922";
+export const RestroList_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.5057232&lng=80.049922";
 
 export const LoadMoreRestro_Url="https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.5057232&lng=80.049922&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING&offset="
 

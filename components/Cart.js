@@ -1,10 +1,10 @@
 import {useSelector} from "react-redux";
 import CartItemCard from "./CartItemCard";
-import { useState,useCallback } from 'react';
 
 
 const Cart=()=>{
-    const CartItems=useSelector(store=>store.cart.items)    
+    const CartItems=useSelector(store=>store.cart.items)
+    console.log(CartItems) 
     return (
         <>
         <section className="px-[100px] w-min mx-auto sm:w-[640px] lg:w-[860px] 2xl:w-[1080px]">
